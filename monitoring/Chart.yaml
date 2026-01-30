@@ -1,0 +1,8 @@
+# Monitoring stack with VictoriaMetrics + Grafana
+apiVersion: v2
+name: monitoring
+version: 0.1.0
+dependencies:
+  - name: victoria-metrics-k8s-stack
+    version: "0.30.3"
+    repository: https://victoriametrics.github.io/helm-charts/

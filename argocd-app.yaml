@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: spam-task
+  namespace: argocd
+spec:
+  project: default
+
+  sources:
+    - repoURL: https://github.com/6lvckmania/spam2000-test-task.git
+      targetRevision: main
+      path: spam2000
+    - repoURL: https://github.com/6lvckmania/spam2000-test-task.git
+      targetRevision: main
+      path: monitoring
+      helm:
+        releaseName: monitoring
+        valueFiles:
+          - values.yaml
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: monitoring
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

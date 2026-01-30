@@ -1,0 +1,36 @@
+# spam2000 app - generates metrics for testing monitoring
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spam2000
+  namespace: monitoring
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spam2000
+  template:
+    metadata:
+      labels:
+        app: spam2000
+    spec:
+      containers:
+        - name: spam2000
+          image: andriiuni/spam2000:1.1394.355
+          ports:
+            - containerPort: 8080
+              name: metrics
+---
+# Service for spam2000 metrics endpoint
+apiVersion: v1
+kind: Service
+metadata:
+  name: spam2000
+  namespace: monitoring
+spec:
+  selector:
+    app: spam2000
+  ports:
+    - port: 8080
+      targetPort: 8080
+      name: metrics

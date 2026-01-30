@@ -1,0 +1,39 @@
+victoria-metrics-k8s-stack:
+  grafana:
+    enabled: true
+    sidecar:
+      dashboards:
+        enabled: true
+        label: grafana_dashboard
+    # Auto-import dashboards from grafana.com
+    dashboardProviders:
+      dashboardproviders.yaml:
+        apiVersion: 1
+        providers:
+          - name: 'default'
+            orgId: 1
+            folder: ''
+            type: file
+            disableDeletion: false
+            editable: true
+            options:
+              path: /var/lib/grafana/dashboards/default
+    dashboards:
+      default:
+        node-exporter:
+          gnetId: 1860
+          revision: 31
+          datasource: VictoriaMetrics
+        kubernetes-cluster:
+          gnetId: 7249
+          revision: 1
+          datasource: VictoriaMetrics
+
+  vmagent:
+    enabled: true
+    # Scrape spam2000 metrics
+    additionalScrapeConfigs:
+      - job_name: "spam2000"
+        static_configs:
+          - targets:
+              - "spam2000.monitoring.svc.cluster.local:8080"
