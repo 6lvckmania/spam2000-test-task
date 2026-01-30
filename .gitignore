@@ -1,6 +1,7 @@
 # Helm
 charts/
 *.tgz
+Chart.lock
 
 # IDE
 .idea/
