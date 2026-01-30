@@ -1,6 +1,10 @@
 victoria-metrics-k8s-stack:
   grafana:
     enabled: true
+    # Disable sidecar to use direct dashboard import
+    sidecar:
+      dashboards:
+        enabled: false
     # Auto-import dashboards from grafana.com by ID
     dashboardProviders:
       dashboardproviders.yaml:
