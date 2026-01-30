@@ -1,6 +1,8 @@
 victoria-metrics-k8s-stack:
   grafana:
     enabled: true
+    # Disable default dashboards (too large for ConfigMaps)
+    defaultDashboardsEnabled: false
 
   vmagent:
     enabled: true
