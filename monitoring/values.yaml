@@ -1,8 +1,11 @@
 victoria-metrics-k8s-stack:
   grafana:
     enabled: true
-    # Disable default dashboards (too large for ConfigMaps)
-    defaultDashboardsEnabled: false
+    
+  # Disable all default dashboards to avoid ConfigMap size limits
+  defaultDashboardsEnabled: false
+  grafana-dashboards:
+    enabled: false
 
   vmagent:
     enabled: true
