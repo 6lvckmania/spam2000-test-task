@@ -39,10 +39,16 @@ kubectl -n monitoring port-forward svc/monitoring-grafana 3000:80
 
 ## Dashboards
 
-Import these Grafana dashboards by ID:
-- **1860** - Node Exporter Full
-- **7249** - Kubernetes Cluster Monitoring
-- **Custom** - spam2000 metrics available at `/metrics` endpoint
+VictoriaMetrics includes default dashboards. To add more:
+1. Open Grafana UI
+2. Go to Dashboards → Import
+3. Enter dashboard ID:
+   - **1860** - Node Exporter Full
+   - **7249** - Kubernetes Cluster Monitoring
+4. Select "VictoriaMetrics" as datasource
+5. Import
+
+spam2000 metrics available at `/metrics` endpoint (job="spam2000" in VictoriaMetrics)
 
 ## Test GitOps
 
