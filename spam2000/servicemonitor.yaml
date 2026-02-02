@@ -1,0 +1,13 @@
+apiVersion: operator.victoriametrics.com/v1beta1
+kind: VMServiceScrape
+metadata:
+  name: spam2000
+  namespace: monitoring
+spec:
+  selector:
+    matchLabels:
+      app: spam2000
+  endpoints:
+    - port: metrics
+      path: /metrics
+      interval: 30s
