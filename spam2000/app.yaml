@@ -14,12 +14,12 @@ spec:
       labels:
         app: spam2000
     spec:
-      containers:
-        - name: spam2000
-          image: andriiuni/spam2000:1.1394.355
-          ports:
-            - containerPort: 8080
-              name: metrics
+          containers:
+            - name: spam2000
+              image: andriiuni/spam2000:1.1394.355
+              ports:
+                - containerPort: 3000
+                  name: metrics
 ---
 # Service for spam2000 metrics endpoint
 apiVersion: v1
@@ -31,6 +31,6 @@ spec:
   selector:
     app: spam2000
   ports:
-    - port: 8080
-      targetPort: 8080
+    - port: 3000
+      targetPort: 3000
       name: metrics

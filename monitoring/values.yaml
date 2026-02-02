@@ -21,4 +21,4 @@ victoria-metrics-k8s-stack:
       - job_name: "spam2000"
         static_configs:
           - targets:
-              - "spam2000.monitoring.svc.cluster.local:8080"
+              - "spam2000.monitoring.svc.cluster.local:3000"
