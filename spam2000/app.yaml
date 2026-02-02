@@ -27,6 +27,8 @@ kind: Service
 metadata:
   name: spam2000
   namespace: monitoring
+  labels:
+    app: spam2000
 spec:
   selector:
     app: spam2000
