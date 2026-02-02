@@ -1,16 +1,20 @@
 victoria-metrics-k8s-stack:
   grafana-dashboards:
     enabled: false
-
   defaultDashboardsEnabled: false
 
   grafana:
     enabled: true
     defaultDashboardsEnabled: false
+    dashboardProviders: {}
+    dashboardsConfigMaps: []
+
+  prometheus-node-exporter:
+    dashboards:
+      enabled: false
 
   vmagent:
     enabled: true
-    # Scrape spam2000 metrics
     additionalScrapeConfigs:
       - job_name: "spam2000"
         static_configs:
