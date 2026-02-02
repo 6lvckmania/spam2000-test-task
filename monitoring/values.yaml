@@ -1,7 +1,8 @@
 victoria-metrics-k8s-stack:
-  # Disable grafana-dashboards subchart to avoid large ConfigMaps (>262KB limit)
   grafana-dashboards:
     enabled: false
+
+  defaultDashboardsEnabled: false
 
   grafana:
     enabled: true
