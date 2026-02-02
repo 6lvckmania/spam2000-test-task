@@ -27,7 +27,11 @@ cd spam2000-test-task
 # Deploy everything
 chmod +x install.sh cleanup.sh
 ./install.sh
+
+# Wait 3-5 minutes for all components to be ready
 ```
+
+**Note:** After installation, wait 3-5 minutes for Argo CD to sync all resources and for monitoring to start collecting metrics.
 
 ## Access
 
