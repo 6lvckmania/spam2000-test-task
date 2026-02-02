@@ -6,8 +6,10 @@ victoria-metrics-k8s-stack:
   grafana:
     enabled: true
     defaultDashboardsEnabled: false
-    dashboardProviders: {}
-    dashboardsConfigMaps: []
+    sidecar:
+      dashboards:
+        enabled: true
+        label: grafana_dashboard
 
   prometheus-node-exporter:
     dashboards:
